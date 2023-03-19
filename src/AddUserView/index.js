@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, memo } from "react";
 import style from "./style.module.css";
 
 const AddUserView = ({ addUser }) => {
@@ -37,4 +37,4 @@ const AddUserView = ({ addUser }) => {
   );
 };
 
-export default AddUserView;
+export default memo(AddUserView);

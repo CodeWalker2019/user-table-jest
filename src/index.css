@@ -20,8 +20,12 @@ code {
     monospace;
 }
 
+hr {
+  margin: 30px 0;
+}
+
 button {
-  cursor: pointer;`
+  cursor: pointer;
   border: none;
   outline: none;
   color: white;
@@ -45,4 +49,19 @@ input {
 }
 input:focus {
   border-color: var(--primary-color);
+}
+
+/* Default table styles */
+table {
+  width: 100%;
+  overflow: hidden;
+  border-collapse: collapse;
+}
+th,
+td {
+  text-align: start;
+  border: 1px solid gray;
+  padding: var(--primary-padding);
+  text-overflow: ellipsis;
+  overflow: hisdden;
 }

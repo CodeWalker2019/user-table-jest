@@ -1,10 +1,24 @@
-import AddUserView from "./AddUserView/AddUserView";
+import { useCallback, useState } from "react";
+import AddUserView from "./AddUserView";
+import UsersTable from "./UsersTable";
+
 import "./App.css";
 
-const App = () => (
-  <div className="App">
-    <AddUserView addUser={() => null} />
-  </div>
-);
+const App = () => {
+  const [users, setUsers] = useState([]);
+
+  const addUser = useCallback(
+    (user) => setUsers((users) => users.concat(user)),
+    []
+  );
+
+  return (
+    <div className="App">
+      <AddUserView addUser={addUser} />
+      <hr />
+      <UsersTable users={users} />
+    </div>
+  );
+};
 
 export default App;
