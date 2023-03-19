@@ -6,23 +6,35 @@ import AddUserView from ".";
 
 window.document.getSelection = jest.fn();
 
+function renderAddUsersView() {
+  const submitUserMockFn = jest.fn();
+  render(<AddUserView addUser={submitUserMockFn} />);
+  const nameInput = screen.getByRole("textbox", { name: /name/i });
+  const emailInput = screen.getByRole("textbox", { name: /email/i });
+  const submitButton = screen.getByRole("button");
+  return {
+    nameInput,
+    emailInput,
+    submitButton,
+    submitUserMockFn,
+  };
+}
+
 describe("AddUserView", () => {
   test("The form contains email and name input fields and submit button", () => {
-    render(<AddUserView />);
-    const nameInput = screen.getByRole("textbox", { name: /name/i });
-    const emailInput = screen.getByRole("textbox", { name: /email/i });
+    const { nameInput, emailInput } = renderAddUsersView();
     expect(nameInput).toBeInTheDocument();
     expect(emailInput).toBeInTheDocument();
   });
 
   test("The AddUserForm is submitted correctly", async () => {
-    const submitUserMockFn = jest.fn();
     const expectedNewUser = { name: "Nick", email: "nick.bowler@gmail.com" };
-
-    render(<AddUserView addUser={submitUserMockFn} />);
-    const nameInput = screen.getByRole("textbox", { name: /name/i });
-    const emailInput = screen.getByRole("textbox", { name: /email/i });
-    const submitButton = screen.getByRole("button");
+    const {
+      nameInput,
+      emailInput,
+      submitButton,
+      submitUserMockFn,
+    } = renderAddUsersView();
 
     await user.click(nameInput);
     await user.keyboard(expectedNewUser.name);

@@ -2,7 +2,7 @@ import React from "react";
 
 const UsersTable = ({ users }) => {
   const renderedTableBody = users.map((user) => (
-    <tr>
+    <tr key={`${user.name}/${user.email}`}>
       <td>{user.name}</td>
       <td>{user.email}</td>
     </tr>
@@ -16,7 +16,7 @@ const UsersTable = ({ users }) => {
           <th>email</th>
         </tr>
       </thead>
-      <tbody>{renderedTableBody}</tbody>
+      <tbody data-testid="users">{renderedTableBody}</tbody>
     </table>
   );
 };
