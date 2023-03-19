@@ -1,0 +1,19 @@
+.addUserForm,
+.addUserFieldContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.addUserForm {
+  row-gap: 15px;
+  /* width: 300px; */
+  margin: auto;
+}
+
+.addUserFieldContainer {
+  row-gap: 7px;
+}
+
+.submitNewUserButton {
+  align-self: flex-end;
+}

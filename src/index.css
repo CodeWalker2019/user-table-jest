@@ -1,13 +1,48 @@
+:root {
+  --primary-padding: 5px 10px;
+  --primary-font-size: 1em;
+  --primary-color: #007aff;
+  --primary-border-radius: 5px;
+}
+*,
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+  font-size: var(--primary-font-size);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  color: white;
+  padding: var(--primary-padding);
+  background-color: var(--primary-color);
+  border-radius: var(--primary-border-radius);
+}
+button:active {
+  background-color: #0060c6;
+}
+
+label {
+  font-weight: 600;
+}
+
+input {
+  outline: none;
+  border: 0.1em solid gray;
+  padding: var(--primary-padding);
+  border-radius: var(--primary-border-radius);
+}
+input:focus {
+  border-color: var(--primary-color);
 }
