@@ -2,7 +2,8 @@ import React, { useState, memo } from "react";
 import style from "./style.module.css";
 
 const AddUserView = ({ addUser }) => {
-  const [form, setForm] = useState({ name: "", email: "" });
+  const initialForm = { name: "", email: "" };
+  const [form, setForm] = useState(initialForm);
 
   const handleUpdateForm = (event) => {
     event.preventDefault();
@@ -13,6 +14,7 @@ const AddUserView = ({ addUser }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     addUser(form);
+    setForm(initialForm);
   };
 
   return (

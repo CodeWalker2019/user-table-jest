@@ -41,4 +41,17 @@ describe("AddUserView", () => {
     expect(submitUserMockFn).toHaveBeenCalled();
     expect(submitUserMockFn).toHaveBeenCalledWith(expectedNewUser);
   });
+
+  test("The form is cleared after submit", async () => {
+    const { nameInput, emailInput, submitButton } = renderAddUsersView();
+
+    await user.click(nameInput);
+    await user.keyboard("tom");
+    await user.click(emailInput);
+    await user.keyboard("tom_holland@spyder.co");
+    await user.click(submitButton);
+
+    expect(nameInput).toHaveValue("");
+    expect(emailInput).toHaveValue("");
+  });
 });
