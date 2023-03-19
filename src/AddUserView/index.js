@@ -1,4 +1,4 @@
-import { useState, memo } from "react";
+import React, { useState, memo } from "react";
 import style from "./style.module.css";
 
 const AddUserView = ({ addUser }) => {

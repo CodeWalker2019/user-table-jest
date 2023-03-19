@@ -1,3 +1,5 @@
+import React from "react";
+
 const UsersTable = ({ users }) => {
   const renderedTableBody = users.map((user) => (
     <tr>
@@ -8,11 +10,13 @@ const UsersTable = ({ users }) => {
 
   return (
     <table>
-      <tr>
-        <th>username</th>
-        <th>email</th>
-      </tr>
-      {renderedTableBody}
+      <thead>
+        <tr>
+          <th>username</th>
+          <th>email</th>
+        </tr>
+      </thead>
+      <tbody>{renderedTableBody}</tbody>
     </table>
   );
 };
