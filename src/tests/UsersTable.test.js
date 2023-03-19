@@ -1,7 +1,7 @@
 import React from "react";
 import "@testing-library/jest-dom";
 import { render, screen, within } from "@testing-library/react";
-import UsersTable from ".";
+import UsersTable from "../UsersTable";
 
 function renderUsersTable() {
   const users = [

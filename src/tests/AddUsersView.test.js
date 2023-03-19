@@ -2,11 +2,11 @@ import React from "react";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import user from "@testing-library/user-event";
-import AddUserView from ".";
+import AddUserView from "../AddUserView";
 
 window.document.getSelection = jest.fn();
 
-function renderAddUsersView() {
+export function renderAddUsersView() {
   const submitUserMockFn = jest.fn();
   render(<AddUserView addUser={submitUserMockFn} />);
   const nameInput = screen.getByRole("textbox", { name: /name/i });
@@ -29,12 +29,8 @@ describe("AddUserView", () => {
 
   test("The AddUserForm is submitted correctly", async () => {
     const expectedNewUser = { name: "Nick", email: "nick.bowler@gmail.com" };
-    const {
-      nameInput,
-      emailInput,
-      submitButton,
-      submitUserMockFn,
-    } = renderAddUsersView();
+    const { nameInput, emailInput, submitButton, submitUserMockFn } =
+      renderAddUsersView();
 
     await user.click(nameInput);
     await user.keyboard(expectedNewUser.name);
